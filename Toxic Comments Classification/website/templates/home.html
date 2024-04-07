@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<style>
+  .header {
+    padding: 1rem;
+  }
+
+  .Toxic {
+    color: red;
+  }
+
+</style>
+
+<div class="header">
+  <h1 align="center"><span class="Toxic">Toxic </span><span>Comments Classification</span></h1>
+</div>
+
+<div class="container">
+  <!-- <form method="post" action="{{ url_for('views.home') }}" autocomplete="off"> -->
+  <form method="post" action="{{url_for('views.results')}}" autocomplete="off">
+    <label for="youtube_link">Enter YouTube Link:</label>
+    <input type="text" name="youtube_link" id="youtube_link" value="{{youtube_link}}">
+    <button type="submit">Submit YouTube Link</button>
+  </form>
+</div>
+<!-- <h1>Data Table</h1>
+<table border="1">
+  <tr>
+    <th>Author</th>
+    <th>Comments</th>
+    <th>Toxic/Non-Toxic</th>
+  </tr>
+  {% for item in data %}
+  <tr>
+     <td>{{ item }}</td>
+    <td><a href="https://www.youtube.com/{{item}}"></a></td>
+    <td>{{ data[item][0] }}</td>
+    <td>{{ data[item][1] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %} -->

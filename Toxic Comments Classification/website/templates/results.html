@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<h1>Data Table</h1>
+<p>{{you}}</p>
+<table border="1">
+  <tr>
+    <th>Author</th>
+    <th>Comments</th>
+    <th>Toxic/Non-Toxic</th>
+  </tr>
+  {% for item in data %}
+  <tr>
+    <td><a href="https://www.youtube.com/{{item}}">{{item}}</a></td>
+    <td>{{ data[item][0] }}</td>
+    <td>{{ data[item][1] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% if data %}
+  {# Check if data is not empty, then reset it to an empty dictionary #}
+  {% set data = {} %}
+{% endif %}
+{% endblock %}
