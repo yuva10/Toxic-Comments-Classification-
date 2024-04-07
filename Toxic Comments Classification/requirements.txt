@@ -4,5 +4,4 @@ flask-login
 gunicorn
 numpy
 pandas
-sklearn
-
+scikit-learn
