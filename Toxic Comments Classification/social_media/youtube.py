@@ -58,10 +58,10 @@ def link(youtube_link):
             print(request)
 
     # tfidf=pickle.load(open("tf_idf.pkt","rb"))
-    tfidf_path = r"C:\Desktop\Major project\Flask-Web-App-Tutorial-main\Flask-Web-App-Tutorial-main\social_media\tf_idf.pkt"
+    tfidf_path = r"Toxic Comments Classification\social_media\tf_idf.pkt"
 
     tfidf = pickle.load(open(tfidf_path, "rb"))
-    toxicity_model_path=r"C:\Desktop\Major project\Flask-Web-App-Tutorial-main\Flask-Web-App-Tutorial-main\social_media\toxicity_model.pkt"
+    toxicity_model_path=r"Toxic Comments Classification\social_media\toxicity_model.pkt"
     nb_model=pickle.load(open(toxicity_model_path,"rb"))
     n=len(comment)
     for i in range(n):
