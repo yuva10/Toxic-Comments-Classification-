@@ -58,11 +58,27 @@ def link(youtube_link):
             print(request)
 
     # tfidf=pickle.load(open("tf_idf.pkt","rb"))
-    tfidf_path = r"Toxic Comments Classification\social_media\tf_idf.pkt"
+    # tfidf_path = r"Toxic Comments Classification\social_media\tf_idf.pkt"
+    # tfidf = pickle.load(open(tfidf_path, "rb"))
 
-    tfidf = pickle.load(open(tfidf_path, "rb"))
-    toxicity_model_path=r"Toxic Comments Classification\social_media\toxicity_model.pkt"
-    nb_model=pickle.load(open(toxicity_model_path,"rb"))
+    project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    tfidf_path = os.path.join(project_dir, "social_media", "tf_idf.pkt")
+    toxicity_model_path = os.path.join(project_dir, "social_media", "toxicity_model.pkt")
+
+    try:
+        with open(tfidf_path, "rb") as f:
+            tfidf = pickle.load(f)
+    except FileNotFoundError:
+        print(f"File '{tfidf_path}' not found.")
+
+    try:
+        with open(toxicity_model_path, "rb") as f:
+            toxicity_model = pickle.load(f)
+    except FileNotFoundError:
+        print(f"File '{toxicity_model_path}' not found.")
+    # toxicity_model_path=r"Toxic Comments Classification\social_media\toxicity_model.pkt"
+    # nb_model=pickle.load(open(toxicity_model_path,"rb"))
+    
     n=len(comment)
     for i in range(n):
         text_input=tfidf.transform([comment[i]]).toarray()
