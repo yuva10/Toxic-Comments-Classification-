@@ -77,7 +77,7 @@ def link(youtube_link):
     except FileNotFoundError:
         print(f"File '{toxicity_model_path}' not found.")
     # toxicity_model_path=r"Toxic Comments Classification\social_media\toxicity_model.pkt"
-    # nb_model=pickle.load(open(toxicity_model_path,"rb"))
+    nb_model=pickle.load(open(toxicity_model_path,"rb"))
     
     n=len(comment)
     for i in range(n):
